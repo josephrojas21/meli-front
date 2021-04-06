@@ -1,7 +1,29 @@
+.layout-container {
+    background-color: #EEEEEE;
+    height: 100vh;
+}
 .layout-navbar {
     display: flex;
     align-items: center;
     height: 3.5rem;
     background-color: #FFE600;
-    padding: 0 5rem;
+}
+
+.layout-searchInput:focus {
+    box-shadow: none;
+}
+
+.layout-searchButton {
+    background-color: #EEEEEE;
+    border-color: #EEEEEE;
+
+    &:hover, &:focus, &:active  {
+        background-color: #EEEEEE !important;
+        border-color: #EEEEEE !important;
+        box-shadow: none;
+    }
+}
+
+.layout-row {
+    width: 100%;
 }
