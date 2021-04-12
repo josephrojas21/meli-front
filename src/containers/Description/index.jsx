@@ -18,6 +18,7 @@ const Description = () => {
     const id = location.pathname.split('/').pop();
     const searchItems = async () => {
       const { status, resp } = await dispatch(fetchDescriptionItem(id));
+      // eslint-disable-next-line no-alert
       if (status === 'error') alert('There was an error fetching the item description', resp);
     };
 

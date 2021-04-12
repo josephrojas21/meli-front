@@ -19,6 +19,7 @@ const Items = () => {
     const query = location.search;
     const searchItems = async () => {
       const { status, resp } = await dispatch(fetchSearchItems(query));
+      // eslint-disable-next-line no-alert
       if (status === 'error') alert('There was an error fetching the items', resp);
     };
 
