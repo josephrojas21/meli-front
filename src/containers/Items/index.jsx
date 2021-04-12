@@ -32,7 +32,7 @@ const Items = () => {
 
   return (
     <>
-      <Breadcum text={breadcum} />
+      {breadcum && <Breadcum text={breadcum} />}
       <div className="items-container">
         {moviesData && moviesData.map((item) => (
           <Products key={item.id} product={item} openProduct={handleOpenProduct} />
