@@ -34,7 +34,7 @@ const Items = () => {
     <>
       <Breadcum text={breadcum} />
       <div className="items-container">
-        {moviesData.map((item) => (
+        {moviesData && moviesData.map((item) => (
           <Products key={item.id} product={item} openProduct={handleOpenProduct} />
         ))}
       </div>
