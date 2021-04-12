@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Layout from '../containers/Layout';
 import Items from '../containers/Items';
+import Description from '../containers/Description';
 
 const Routes = () => (
   <BrowserRouter>
@@ -11,11 +12,11 @@ const Routes = () => (
         <Route exact path="/">
           <h1>Landing</h1>
         </Route>
-        <Route path="/items">
+        <Route exact path="/items">
           <Items />
         </Route>
         <Route exact path="/items/:id">
-          <h1>Details</h1>
+          <Description />
         </Route>
       </Switch>
     </Layout>

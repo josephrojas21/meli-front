@@ -8,6 +8,7 @@ const searchItemsSlice = createSlice({
   initialState: {
     itemsList: [],
     categories: [],
+    breadcum: [],
     isLoading: false,
     error: false,
   },
@@ -27,13 +28,17 @@ const searchItemsSlice = createSlice({
       state.categories = action.payload;
       state.isLoading = false;
     },
+    breadcumSucces: (state, action) => {
+      state.breadcum = action.payload;
+      state.isLoading = false;
+    },
   },
 });
 
 const { actions, reducer } = searchItemsSlice;
 
 export const {
-  startLoading, hasError, searchItemsSucces, categoriesSucces,
+  startLoading, hasError, searchItemsSucces, categoriesSucces, breadcumSucces,
 } = actions;
 
 export const fetchSearchItems = (query) => async (dispatch) => {
@@ -46,6 +51,7 @@ export const fetchSearchItems = (query) => async (dispatch) => {
 
   dispatch(searchItemsSucces(data.items));
   dispatch(categoriesSucces(data.categories));
+  dispatch(breadcumSucces(data.breadcrumb));
 
   return { status: 'succes' };
 };

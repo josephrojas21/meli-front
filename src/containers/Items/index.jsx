@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchSearchItems } from '../../redux/actions/search.reducer';
 
 import Products from '../../components/Products';
+import Breadcum from '../../components/Breadcum';
 import './items.scss';
 
 const Items = () => {
@@ -12,6 +13,7 @@ const Items = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const moviesData = useSelector((state) => state.searchItems.itemsList);
+  const breadcum = useSelector((state) => state.searchItems.breadcum);
 
   useEffect(() => {
     const query = location.search;
@@ -29,7 +31,7 @@ const Items = () => {
 
   return (
     <>
-      <p className="items-breadcum">Breadcum</p>
+      <Breadcum text={breadcum} />
       <div className="items-container">
         {moviesData.map((item) => (
           <Products key={item.id} product={item} openProduct={handleOpenProduct} />
