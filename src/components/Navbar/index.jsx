@@ -1,25 +1,14 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   InputGroup, Form, FormControl, Row, Col, Button,
 } from 'react-bootstrap';
 
-import { fetchSearchItems } from '../../redux/actions/search.reducer';
-
 import Logo from '../../assets/img/Logo_ML.png';
 import Search from '../../assets/img/ic_Search.png';
 
-const Navbar = () => {
-  const dispatch = useDispatch();
-  const [text, setText] = useState('');
-
-  const handleSearch = async (e) => {
-    e.preventDefault();
-
-    const { status, resp } = await dispatch(fetchSearchItems(text));
-    if (status === 'error') alert('There was an error fetching the items', resp);
-    console.log('query', text);
-  };
+const Navbar = ({ search, text, setText }) => {
+  console.log('ho');
 
   return (
     <div className="layout-navbar">
@@ -28,7 +17,7 @@ const Navbar = () => {
           <img src={Logo} alt="mainLogo" />
         </Col>
         <Col lg="9">
-          <Form onSubmit={handleSearch}>
+          <Form onSubmit={search}>
             <InputGroup>
               <FormControl
                 className="layout-searchInput"
@@ -46,6 +35,13 @@ const Navbar = () => {
       </Row>
     </div>
   );
+};
+
+Navbar.propTypes = {
+  search: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired,
+  setText: PropTypes.func.isRequired,
+
 };
 
 export default Navbar;

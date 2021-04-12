@@ -1,7 +1,7 @@
 import axios from '../../utils/apiClient';
 
 const reqSearchItems = async (query) => {
-  const [error, data] = await axios.get(`?q=${query}`)
+  const [error, data] = await axios.get(`${query}`)
     .then((items) => [null, items.data])
     .catch((err) => [err, err]);
 

@@ -43,7 +43,7 @@ export const fetchSearchItems = (query) => async (dispatch) => {
     dispatch(hasError(error));
     return { status: 'error', resp: error };
   }
-  console.log(data);
+
   dispatch(searchItemsSucces(data.items));
   dispatch(categoriesSucces(data.categories));
 

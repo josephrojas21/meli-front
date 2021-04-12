@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
 import {
   Row, Col,
 } from 'react-bootstrap';
@@ -9,13 +9,23 @@ import Navbar from '../../components/Navbar';
 import './layout.scss';
 
 const Layout = ({ children }) => {
-  console.log('hola');
+  const history = useHistory();
+  const [text, setText] = useState('');
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    history.push(`/items?q=${text}`);
+  };
 
   return (
     <div className="layout-container">
-      <Navbar />
+      <Navbar
+        search={handleSearch}
+        text={text}
+        setText={setText}
+      />
       <Row className="layout-row">
-        <Col lg={{ span: 11, offset: 1 }}>
+        <Col lg={{ span: 10, offset: 1 }}>
           {children}
         </Col>
       </Row>
