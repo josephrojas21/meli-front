@@ -27,7 +27,7 @@ const Description = () => {
 
   return (
     <>
-      <Breadcum text={breadcum} />
+      {breadcum && <Breadcum text={breadcum} />}
       <div className="item-container">
         {info.id && <InfoItem info={info} />}
       </div>
