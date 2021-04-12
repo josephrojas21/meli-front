@@ -1,5 +1,5 @@
 const Constants = {
-  apiUrl: process.env.SEARCH_API || 'http://localhost:5000/api/items',
+  apiUrl: process.env.SEARCH_API,
 };
 
 export default Constants;
